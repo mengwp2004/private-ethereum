@@ -89,6 +89,11 @@ https://my.oschina.net/stevex/blog/746669
 #PC enode
 
 
+#add peer
+admin.addPeer('enode://ddf2808f09a34e4b77eb7854be18decc760edce76aa4f1026f720a6c5d41b77db1a84238f4d8a54b143b2bf931647351f45de5748fbd288f7940a6d0436065b5@[192.168.80.11]:30000')
+
+admin.peers
+
 
 enode: "enode://ddf2808f09a34e4b77eb7854be18decc760edce76aa4f1026f720a6c5d41b77db1a84238f4d8a54b143b2bf931647351f45de5748fbd288f7940a6d0436065b5@[::]:30000"
 
