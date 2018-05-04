@@ -112,3 +112,25 @@ enode: "enode://ddf2808f09a34e4b77eb7854be18decc760edce76aa4f1026f720a6c5d41b77d
 
 #contract address
 0x71C5068584a8EaB709658bEB6132673d78C72555
+
+
+#添加token,修改从eth到gusto
+
+1  修改监听代币地址
+ 
+2　修改计算代币的总balacne
+
+3  修改token的转移命令
+
+
+#json rpc
+
+for java,web3j
+https://docs.web3j.io/
+
+for ruby
+gem install web3
+
+for javascript
+web3
+
