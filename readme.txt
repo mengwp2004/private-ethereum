@@ -1,3 +1,15 @@
+##geth command install
+
+#release address
+https://geth.ethereum.org/downloads/
+
+#how to install
+
+1 ubuntu
+
+2 centos
+https://blog.csdn.net/qq_35753140/article/details/79463735
+
 
 #fast mode
 geth --fast --cache=1024 console
