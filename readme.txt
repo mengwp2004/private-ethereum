@@ -1,3 +1,12 @@
+#geth wiki
+https://github.com/ethereum/go-ethereum/wiki
+
+##keystore文件介绍,内部原理分析
+https://ethfans.org/posts/what-is-an-ethereum-keystore-file
+
+#签名介绍
+https://www.jianshu.com/p/d622e1ec9470?from=singlemessage
+
 ##geth command install
 
 #release address
@@ -287,4 +296,92 @@ samplecontract.get.call()
 
 > samplecontract.get.call()
 
-9 
+9
+
+rpc-json example:
+{"jsonrpc":"2.0","method":"personal_unlockAccount","params":["0x5d860f37c1291707a806d302d10bc09705f2aa84","123456",36000],"id":"1"}
+
+ RequestBody requestBody = RequestBody.create(JSON_MEDIA_TYPE, request);
+
+
+{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from":"0xc3aadccf55b41d80d3792ee55af7316aee2ea5ab","to":"0x163fda28fea5356f051cc00e236d67006200b558","gas":"0x419ce0","gasPrice":"0x2328","data":"0xa9059cbb000000000000000000000000c517bffddc672b05804062031d21058d50519110000000000000000000000000000000000000000000000000000000000000c34b","nonce":"0x1e"}],"id":233}
+
+转移代币：
+
+> eth.getTransaction("0xfb85a411be23b7fe736a9a53aa64de48072cece1a6bc8c3d64117284ed35d43C")
+{
+  blockHash: "0x07b8bda26d922b04000e2d3b8317206d5ceee8ac371cd6a93b87bb3337e70d7d",
+  blockNumber: 3524,
+  from: "0xc3aadccf55b41d80d3792ee55af7316aee2ea5ab",
+  gas: 4300000,
+  gasPrice: 22000000000,
+  hash: "0xfb85a411be23b7fe736a9a53aa64de48072cece1a6bc8c3d64117284ed35d43c",
+  input: "0xa9059cbb000000000000000000000000c517bffddc672b05804062031d21058d505191100000000000000000000000000000000000000000000000000000000000001387",
+  nonce: 78,
+  r: "0x71eebdb8d453847a6023bbd2e3f5c1c7f767ae50def2e4130b90e0fceb0f7344",
+  s: "0xe0008c8248898878a358b3295793b0616dfcbd141425a9650412fe9d6bf93ae",
+  to: "0x163fda28fea5356f051cc00e236d67006200b558",
+  transactionIndex: 4,
+  v: "0x1b",
+  value: 0
+}
+
+
+这里的是代币地址,value为０
+ to: "0x163fda28fea5356f051cc00e236d67006200b558",
+ 
+监听的log信息:
+
+0 : Log{removed=false, logIndex='0x0', transactionIndex='0x0', transactionHash='0x94d0797ae517cda26053a2df5a7904674e9e1e6b3dc0c850ec06ba8b0aaa71e6', blockHash='0xa8654b7f6d9d364dd7b834aad6216c8ccdd6f7e1f895a3bd35521b6bc3332387', blockNumber='0xdfd', address='0x163fda28fea5356f051cc00e236d67006200b558', data='0x0000000000000000000000000000000000000000000000000000000000001387', type='null', topics=[0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef, 0x000000000000000000000000c3aadccf55b41d80d3792ee55af7316aee2ea5ab, 0x000000000000000000000000c517bffddc672b05804062031d21058d50519110]}
+block num=3581,from=0xc3aadccf55b41d80d3792ee55af7316aee2ea5ab,to=0xc517bffddc672b05804062031d21058d50519110,amount=4999
+need fast,current query blocknum=3582,last block num=3589
+
+
+            return {
+                topics: options.topics,
+                from: options.from,
+                to: options.to,
+                address: options.address,
+                fromBlock: formatters.inputBlockNumberFormatter(options.fromBlock),
+                toBlock: formatters.inputBlockNumberFormatter(options.toBlock)
+            };
+
+
+
+> console.log(this)
+< Filter {
+<   requestManager: 
+<    RequestManager {
+<      provider: 
+<       HttpProvider {
+<         host: 'http://localhost:8545',
+<         timeout: 0,
+<         user: undefined,
+<         password: undefined,
+<         headers: undefined },
+<      polls: {},
+<      timeout: null },
+<   options: 
+<    { topics: 
+<       [ '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef' ],
+<      from: undefined,
+<      to: undefined,
+<      address: '0x163fda28fea5356f051cc00e236d67006200b558',
+<      fromBlock: '0xdfe',
+<      toBlock: '0xdfe' },
+<   implementation: 
+<    { newFilter: { [Function: send] request: [Function: bound ], call: [Function: newFilterCall] },
+<      uninstallFilter: { [Function: send] request: [Function: bound ], call: 'eth_uninstallFilter' },
+<      getLogs: { [Function: send] request: [Function: bound ], call: 'eth_getFilterLogs' },
+<      poll: { [Function: send] request: [Function: bound ], call: 'eth_getFilterChanges' } },
+<   filterId: null,
+<   callbacks: [],
+<   getLogsCallbacks: [],
+<   pollFilters: [],
+<   formatter: [Function: outputLogFormatter] }
+> undefined
+> n
+
+#send raw transatcion
+
+{"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":["0xf86d5685051f4d5c0083419ce0944c4516d4ffb05d21ec26377df284d6aabce3f4aa8806f05b59d3b20000801ca0585b512b5906e5c9c9b78c21b28135e8289644e41811d4b34f073cbb52539de5a04e17618288715261b42ee95e7b5267682d9ee4c1d64e83a4569d0abbb90954b4"],"id":96}
