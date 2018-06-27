@@ -1,3 +1,19 @@
+
+#p2p分析不错
+https://blog.csdn.net/niyuelin1990/article/details/80195974
+
+#eth scan,can see different token info
+https://etherscan.io/tokens
+
+#gusto
+http://www.gustoboard.com/index.php/about-us/?lang=zh
+
+#go api
+https://studygolang.com/pkgdoc
+
+#geth src study
+https://github.com/ZtesoftCS/go-ethereum-code-analysis
+
 #geth wiki
 https://github.com/ethereum/go-ethereum/wiki
 
@@ -43,6 +59,9 @@ geth --identity "PICCetherum"  --rpc  --rpccorsdomain "*" --datadir "$basepath/c
 
 
 http://www.cnblogs.com/tinyxiong/p/7898599.html
+
+#test
+go test -v -cpu 4 ./eth -run TestMethod
 
 
 创建账户
