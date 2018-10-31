@@ -17,3 +17,10 @@ Building private ethereum network.
 
 5 run private wallet
   ./start-private.sh
+
+
+##study code
+https://blog.csdn.net/ddffr/article/category/6951273
+
+#start code analyse
+https://blog.csdn.net/ddffr/article/details/79159741

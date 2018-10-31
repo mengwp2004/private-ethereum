@@ -134,3 +134,8 @@ gem install web3
 for javascript
 web3
 
+
+#debug
+start-debug.sh
+
+http://localhost:6060/debug/pprof/
