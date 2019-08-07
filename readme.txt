@@ -1,4 +1,73 @@
 
+#multi sig
+https://github.com/ethereum/dapp-bin/tree/master/wallet
+
+#go test
+go test -v ./accounts/keystore/ -run TestKeyEncryptDecryptInfo
+
+
+#solidity 安全
+https://ethfans.org/posts/comprehensive-list-of-common-attacks-and-defense-part-1
+
+dao攻击
+http://hackingdistributed.com/2016/06/18/analysis-of-the-dao-exploit/
+
+#eth 资源集合
+https://blog.csdn.net/sportshark/article/details/51820923
+
+#eth 官方论坛
+https://forum.ethereum.org/
+
+#eth china fans
+http://ethfans.org/
+
+#eth status,包括挖矿版本，是否在挖矿
+https://ethstats.net/
+
+#hwo to decide gas price
+
+https://www.ethgasstation.info/
+
+##cancel transaction
+https://ethfans.org/posts/releasing-stuck-ethereum-transactions
+
+#info
+ethereal transaction info --transaction=0xf033dcdf1decb8664db9f211170c72b109aa84d90485805aca928b82004224ae  --connection /mnt/ebs/data/geth.ipc
+Type:			Pending transaction
+From:			0x5D860F37C1291707A806D302D10Bc09705F2Aa84
+To:			0x445eF3961a305C27597736C194b2AeE48f945A4b
+Nonce:			9
+Gas limit:		121000
+Gas price:		57 GWei
+Value:			0.19 Ether
+
+
+ethereal transaction cancel --transaction=0xf033dcdf1decb8664db9f211170c72b109aa84d90485805aca928b82004224ae --gasprice=70gwei --passphrase=secret   --connection /mnt/ebs/data/geth.ipc
+
+
+ethereal account list --connection /mnt/ebs/data/geth.ipc
+
+0xfabf8e74505474f702e564660cd8380d7b938216c69ca1ea19b7ced3a83f09e5
+
+ethereal transaction up --transaction=0xfabf8e74505474f702e564660cd8380d7b938216c69ca1ea19b7ced3a83f09e5 --gasprice=70gwei --passphrase=secret   --connection /mnt/ebs/data/geth.ipc
+
+
+#download geth downloader
+
+centos:
+https://geth.ethereum.org/downloads/
+https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.8.11-dea1ce05.tar.gz
+
+
+src:
+https://github.com/ethereum/go-ethereum/archive/v1.8.11.tar.gz
+
+mac:
+https://gethstore.blob.core.windows.net/builds/geth-darwin-amd64-1.8.11-dea1ce05.tar.gz
+
+#eth token src
+https://github.com/2liang/ERC20ContractCodeLibrary
+
 #p2p分析不错
 https://blog.csdn.net/niyuelin1990/article/details/80195974
 
@@ -246,12 +315,6 @@ for javascript
 web3
 
 
-<<<<<<< HEAD
-#debug
-start-debug.sh
-
-http://localhost:6060/debug/pprof/
-=======
 ##geth console example:
 
 可以参考　https://blog.csdn.net/ddffr/article/details/76549320
@@ -410,8 +473,6 @@ need fast,current query blocknum=3582,last block num=3589
 #send raw transatcion
 
 {"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":["0xf86d5685051f4d5c0083419ce0944c4516d4ffb05d21ec26377df284d6aabce3f4aa8806f05b59d3b20000801ca0585b512b5906e5c9c9b78c21b28135e8289644e41811d4b34f073cbb52539de5a04e17618288715261b42ee95e7b5267682d9ee4c1d64e83a4569d0abbb90954b4"],"id":96}
->>>>>>> 3156269c28f617985d90504030af7e5fc2adf6d9
-
 
 ##infura KEYS
 url :https://infura.io/project/e8c01f59ea9741b980319b5b246cc387
@@ -433,3 +494,101 @@ curl -X POST \
 -H "Content-Type: application/json" \
 --data '{"jsonrpc": "2.0", "id": 1, "method": "eth_blockNumber", "params": []}' \
 "https://mainnet.infura.io/v3/e8c01f59ea9741b980319b5b246cc387"
+
+#nonce problem
+
+}]
+> INFO [07-16|17:14:56|internal/ethapi/api.go:1184]      Submitted transaction                    fullhash=0x3ecb5f29a43c1cc7de174dc888f777d93395d7c4189c4a82b64db7aaa215d236 recipient=0xb611BE7a26F57cd52E508f4C7111F5c87E3Cc067
+
+> eth.pendingTransactions
+[{
+    blockHash: null,
+    blockNumber: null,
+    from: "0xc3aadccf55b41d80d3792ee55af7316aee2ea5ab",
+    gas: 4300000,
+    gasPrice: 70000000000,
+    hash: "0x3ec8d02b43610d2e32ac9226ea5c0a4b8c1af070475b8553d0c2988cd82f26fa",
+    input: "0xa9059cbb0000000000000000000000004c4516d4ffb05d21ec26377df284d6aabce3f4aa0000000000000000000000000000000000000000000000000000000000000001",
+    nonce: 119,
+    r: "0x5cf1f7d08ebc8b4e99a4b2a9626e1582f5c5c819a7dd7f8d511e71a538109cc7",
+    s: "0x41ab3a92c7013a10aa3ab48d68e9f8cf0d0ca98a2a8bbe2cbfe4f12044b3e615",
+    to: "0x26aab374b87a05de615ea3958e42b957ee1bde37",
+    transactionIndex: 0,
+    v: "0x1b",
+    value: 0
+}, {
+    blockHash: null,
+    blockNumber: null,
+    from: "0xc3aadccf55b41d80d3792ee55af7316aee2ea5ab",
+    gas: 4300000,
+    gasPrice: 70000000000,
+    hash: "0xe1a25dcdc17279d4c92e16ef325c5ba4dd85ac3e01d1f036348646cc9bbaa2db",
+    input: "0xa9059cbb0000000000000000000000004c4516d4ffb05d21ec26377df284d6aabce3f4aa00000000000000000000000000000000000000000000000006f05b59d3b20000",
+    nonce: 120,
+    r: "0x8761b2155bc9363394ce8a709ec1854b3fe2235240ed13ef9baeff666489c33a",
+    s: "0xb1931ad03a1ad74f7d77c7537acf9ee31b6d282dc550a937101dfc481d84a34",
+    to: "0x26aab374b87a05de615ea3958e42b957ee1bde37",
+    transactionIndex: 0,
+    v: "0x1c",
+    value: 0
+}, {
+    blockHash: null,
+    blockNumber: null,
+    from: "0xc3aadccf55b41d80d3792ee55af7316aee2ea5ab",
+    gas: 60000,
+    gasPrice: 70000000000,
+    hash: "0xf16ee405ac70245feb1ad824011683efc6de4a249097418b4654048748314b76",
+    input: "0xa9059cbb00000000000000000000000074d7129d0ec0dff6b5e1130c1e5da792a7b54882000000000000000000000000000000000000000000000004c53ecdc18a600000",
+    nonce: 121,
+    r: "0x2a4e83f4c7f339a756ba80b8c70aaac36e487a326cfa17999c5bd73faa3c5181",
+    s: "0x4675d31a3004e5b44d9233a4291a55f7807fcab44551870fc133d804342e5f08",
+    to: "0xb611be7a26f57cd52e508f4c7111f5c87e3cc067",
+    transactionIndex: 0,
+    v: "0x1c",
+    value: 0
+}, {
+    blockHash: null,
+    blockNumber: null,
+    from: "0xc3aadccf55b41d80d3792ee55af7316aee2ea5ab",
+    gas: 60000,
+    gasPrice: 70000000000,
+    hash: "0x8ff9ec7757c114716b95c7a948e2effe4d7f27c42125fd42e988d9c32b60861c",
+    input: "0xa9059cbb00000000000000000000000074d7129d0ec0dff6b5e1130c1e5da792a7b54882000000000000000000000000000000000000000000000004c53ecdc18a600000",
+    nonce: 122,
+    r: "0x48be747bfc249f31298d62be0dad0fccd95ec691652b50d6275f4e4f8bc86100",
+    s: "0x5106a1ac68754f5312eb03fbdf2500c6b550035c7528860f1ecadc280df75b2f",
+    to: "0xb611be7a26f57cd52e508f4c7111f5c87e3cc067",
+    transactionIndex: 0,
+    v: "0x1b",
+    value: 0
+}, {
+    blockHash: null,
+    blockNumber: null,
+    from: "0xc3aadccf55b41d80d3792ee55af7316aee2ea5ab",
+    gas: 60000,
+    gasPrice: 70000000000,
+    hash: "0x3ecb5f29a43c1cc7de174dc888f777d93395d7c4189c4a82b64db7aaa215d236",
+    input: "0xa9059cbb00000000000000000000000074d7129d0ec0dff6b5e1130c1e5da792a7b54882000000000000000000000000000000000000000000000004c53ecdc18a600000",
+    nonce: 123,
+    r: "0x151166e2706e3e1a156ac5068f6a9651a80fad90a92bbb348b54fa803c9721d1",
+    s: "0x4552bac7489e4c84fa933f95799d19937445f1153ee2a48425be137ffdc5b429",
+    to: "0xb611be7a26f57cd52e508f4c7111f5c87e3cc067",
+    transactionIndex: 0,
+    v: "0x1c",
+    value: 0
+}]
+> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> e2fcc358bc72a5f76e72c9526042070d8fa1883d
