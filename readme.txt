@@ -411,3 +411,25 @@ need fast,current query blocknum=3582,last block num=3589
 
 {"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":["0xf86d5685051f4d5c0083419ce0944c4516d4ffb05d21ec26377df284d6aabce3f4aa8806f05b59d3b20000801ca0585b512b5906e5c9c9b78c21b28135e8289644e41811d4b34f073cbb52539de5a04e17618288715261b42ee95e7b5267682d9ee4c1d64e83a4569d0abbb90954b4"],"id":96}
 >>>>>>> 3156269c28f617985d90504030af7e5fc2adf6d9
+
+
+##infura KEYS
+url :https://infura.io/project/e8c01f59ea9741b980319b5b246cc387
+
+user: bluesky
+passwd:mengwp_2004
+
+PROJECT ID
+e8c01f59ea9741b980319b5b246cc387
+
+PROJECT SECRET
+82dd07f187de4332965ec76df85d1cb9
+
+ENDPOINT
+
+mainnet.infura.io/v3/e8c01f59ea9741b980319b5b246cc387
+
+curl -X POST \
+-H "Content-Type: application/json" \
+--data '{"jsonrpc": "2.0", "id": 1, "method": "eth_blockNumber", "params": []}' \
+"https://mainnet.infura.io/v3/e8c01f59ea9741b980319b5b246cc387"
