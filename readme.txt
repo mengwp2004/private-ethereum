@@ -580,6 +580,8 @@ curl -X POST \
 > 
 
 
+##batch transfer
+https://www.jianshu.com/p/bcd8ac99d1e4
 
 
 
@@ -591,4 +593,3 @@ curl -X POST \
 
 
 
->>>>>>> e2fcc358bc72a5f76e72c9526042070d8fa1883d
